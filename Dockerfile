@@ -10,5 +10,4 @@ RUN  apt update; apt install -y docker-ce docker-ce-cli docker-compose-plugin
 RUN  pip install uv pydantic PyYAML  \
                  mcp fastapi fastmcp \
                  openai langchain langgraph langchain-openai langchain-mcp-adapters
-RUN pip install git+https://github.com/jlowin/fastmcp.git
 RUN  echo "set mouse-=a" > /root/.vimrc;
