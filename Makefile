@@ -4,8 +4,12 @@ wDir  ?=${PWD}
 cName ?=mcp
 cmd   ?=tail -f /dev/null
 
+fastmcp_ver ?=fastmcp
+#fastmcp_ver ?=git+https://github.com/itaru2622/jlowin-fastmcp@issue_fromOpenapi_tooSlow
+
+
 build:
-	docker build -t ${img} .
+	docker build --build-arg fastmcp_ver=${fastmcp_ver} -t ${img} .
 
 start:
 	docker run --name ${cName} -d \

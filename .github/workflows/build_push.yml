@@ -22,6 +22,7 @@ env:
   IMAGE_NAME: ${{ github.repository }}
   TAG_LATEST: ${{ vars.DOCKER_EXPORT_TAG}}
   BASE_IMG: ${{ vars.DOCKER_BASE_IMG}}
+  FASTMCP_VER: ${{ vars.FASTMCP_VER}}
   PLATFORMS: linux/amd64
 
 jobs:
@@ -78,3 +79,4 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           build-args: |
             base=${{env.BASE_IMG}}
+            fastmcp_ver=${{env.FASTMCP_VER}}
