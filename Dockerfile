@@ -8,7 +8,8 @@ RUN  curl -L https://download.docker.com/linux/debian/gpg | apt-key add -; \
 RUN  apt update; apt install -y docker-ce docker-ce-cli docker-compose-plugin
 
 ARG fastmcp_ver=fastmcp
-RUN  pip install uv pydantic PyYAML  \
+ENV _fastmcp_ver=${fastmcp_ver}
+RUN pip install uv pydantic PyYAML  \
                  mcp fastapi      gprof2dot ${fastmcp_ver} \
                  openai langchain langgraph langchain-openai langchain-mcp-adapters
-RUN  echo "set mouse-=a" > /root/.vimrc;
+RUN echo "set mouse-=a" > /root/.vimrc;
