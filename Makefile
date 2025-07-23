@@ -4,8 +4,9 @@ wDir  ?=${PWD}
 cName ?=mcp
 cmd   ?=tail -f /dev/null
 
-fastmcp_ver ?=fastmcp
-#fastmcp_ver ?=git+https://github.com/itaru2622/jlowin-fastmcp@issue_fromOpenapi_tooSlow
+#fastmcp_ver ?=fastmcp
+#fastmcp_ver ?=git+https://github.com/jlowin/fastmcp.git@main
+fastmcp_ver  ?=git+https://github.com/itaru2622/jlowin-fastmcp.git@main
 
 
 build:
