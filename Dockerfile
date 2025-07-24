@@ -12,4 +12,6 @@ ENV _fastmcp_ver=${fastmcp_ver}
 RUN pip install uv pydantic PyYAML  \
                  mcp fastapi      gprof2dot ${fastmcp_ver} \
                  openai langchain langgraph langchain-openai langchain-mcp-adapters
+# mcp terminal client for dev/debug
+RUN curl -fL https://raw.githubusercontent.com/zueai/terminal-mcp/main/install.sh | bash
 RUN echo "set mouse-=a" > /root/.vimrc;
