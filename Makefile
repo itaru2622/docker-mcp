@@ -1,5 +1,6 @@
 
 img   ?=itaru2622/mcp:bookworm
+base  ?=python:3.12-bookworm
 wDir  ?=${PWD}
 cName ?=mcp
 cmd   ?=tail -f /dev/null
@@ -10,7 +11,7 @@ fastmcp_ver  ?=git+https://github.com/itaru2622/jlowin-fastmcp.git@main
 
 
 build:
-	docker build --build-arg fastmcp_ver=${fastmcp_ver} -t ${img} .
+	docker build --build-arg base=${base} --build-arg fastmcp_ver=${fastmcp_ver} -t ${img} .
 
 start:
 	docker run --name ${cName} -d \
