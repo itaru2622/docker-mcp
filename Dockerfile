@@ -9,6 +9,7 @@ RUN  apt update; apt install -y docker-ce docker-ce-cli docker-compose-plugin
 
 ARG fastmcp_ver=fastmcp
 ENV _fastmcp_ver=${fastmcp_ver}
+ENV _fastmcp_origin=git+https://github.com/jlowin/fastmcp.git@main
 RUN pip install uv pydantic PyYAML  \
                  mcp fastapi      ${fastmcp_ver} \
                  pandas openpyxl \
