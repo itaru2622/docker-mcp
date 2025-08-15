@@ -14,6 +14,11 @@ RUN pip install uv pydantic PyYAML  \
                  mcp fastapi      ${fastmcp_ver} \
                  pandas openpyxl \
                  openai langchain langgraph langchain-openai langchain-mcp-adapters
+
+RUN echo "set mouse-=a" > /root/.vimrc;
+
+# add 'just' (https://github.com/casey/just), needs to re-generate fastmcp api-docs(docs/python-sdk/*) on contributing.
+RUN curl --tlsv1.2 -fL https://just.systems/install.sh | bash -s -- --to /usr/local/bin
+
 # mcp terminal client for dev/debug
 RUN curl -fL https://raw.githubusercontent.com/zueai/terminal-mcp/main/install.sh | bash
-RUN echo "set mouse-=a" > /root/.vimrc;
