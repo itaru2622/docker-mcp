@@ -1,6 +1,6 @@
-
-img   ?=itaru2622/mcp:bookworm
-base  ?=python:3.12-bookworm
+distr ?=trixie
+img   ?=itaru2622/mcp:${distr}
+base  ?=python:3.13-${distr}
 wDir  ?=${PWD}
 cName ?=mcp
 cmd   ?=tail -f /dev/null
