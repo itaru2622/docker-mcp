@@ -1,6 +1,6 @@
-ARG base=python:3.13-bookworm
+ARG base=python:3.13-trixie
 FROM ${base}
-ARG base=python:3.13-bookworm
+ARG base=python:3.13-trixie
 
 RUN  apt update; apt install -y curl gnupg2 vim bash-completion git make jq yq
 RUN  curl -L https://download.docker.com/linux/debian/gpg > /etc/apt/trusted.gpg.d/docker.asc; \
