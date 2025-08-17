@@ -22,3 +22,10 @@ RUN curl --tlsv1.2 -fL https://just.systems/install.sh | bash -s -- --to /usr/lo
 
 # mcp terminal client for dev/debug
 RUN curl -fL https://raw.githubusercontent.com/zueai/terminal-mcp/main/install.sh | bash
+
+ARG _scriptDir=/opt/ops
+ENV _scriptDir=${_scriptDir}
+COPY . ${_scriptDir}
+WORKDIR ${_scriptDir}
+
+CMD make startDockerd daemonize -C ${_scriptDir}
