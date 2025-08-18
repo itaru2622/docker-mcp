@@ -17,6 +17,11 @@ RUN pip install uv pydantic PyYAML  \
 
 RUN echo "set mouse-=a" > /root/.vimrc;
 
+# docker-mcp plugin trial @ https://github.com/docker/mcp-gateway/releases (pre-releases)
+RUN curl -L https://api.github.com/repos/docker/mcp-gateway/releases | jq -r 'map(select(.prerelease)) | first | .assets[].browser_download_url' | grep linux-amd64.tar.gz | xargs -I {} curl -L {} -o /tmp/docker-mcp.tgz ; \
+tar zxvf /tmp/docker-mcp.tgz -C /usr/libexec/docker/cli-plugins ; \
+rm -f /tmp/docker-mcp.tgz
+
 # add 'just' (https://github.com/casey/just), needs to re-generate fastmcp api-docs(docs/python-sdk/*) on contributing.
 RUN curl --tlsv1.2 -fL https://just.systems/install.sh | bash -s -- --to /usr/local/bin
 
