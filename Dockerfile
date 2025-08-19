@@ -23,6 +23,12 @@ RUN curl -L https://api.github.com/repos/docker/mcp-gateway/releases | jq -r 'ma
 tar zxvf /tmp/docker-mcp.tgz -C /usr/libexec/docker/cli-plugins ; \
 rm -f /tmp/docker-mcp.tgz
 
+# add nodejs + mcp-typescript-sdk(@modelcontextprotocol/sdk)
+ARG node_ver=22
+RUN curl -fsSL https://deb.nodesource.com/setup_${node_ver}.x | bash - ; apt update;
+RUN apt install -y nodejs; \
+    npm install -g @modelcontextprotocol/sdk
+
 # add 'just' (https://github.com/casey/just), needs to re-generate fastmcp api-docs(docs/python-sdk/*) on contributing.
 RUN curl --tlsv1.2 -fL https://just.systems/install.sh | bash -s -- --to /usr/local/bin
 
