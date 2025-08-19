@@ -5,7 +5,8 @@ ARG base=python:3.13-trixie
 RUN  apt update; apt install -y curl gnupg2 vim bash-completion git make jq yq
 RUN  curl -L https://download.docker.com/linux/debian/gpg > /etc/apt/trusted.gpg.d/docker.asc; \
      echo "deb [arch=$(dpkg --print-architecture)] https://download.docker.com/linux/debian $(. /etc/os-release && echo "$VERSION_CODENAME") stable" > /etc/apt/sources.list.d/docker.list
-RUN  apt update; apt install -y docker-ce docker-ce-cli docker-compose-plugin
+RUN  apt update; apt install -y docker-ce docker-ce-cli docker-compose-plugin \
+                                kmod iproute2     net-tools
 
 ARG fastmcp_ver=fastmcp
 ENV _fastmcp_ver=${fastmcp_ver}
