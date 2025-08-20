@@ -22,6 +22,8 @@ RUN echo "set mouse-=a" > /root/.vimrc;
 RUN curl -L https://api.github.com/repos/docker/mcp-gateway/releases | jq -r 'map(select(.prerelease)) | first | .assets[].browser_download_url' | grep linux-amd64.tar.gz | xargs -I {} curl -L {} -o /tmp/docker-mcp.tgz ; \
 tar zxvf /tmp/docker-mcp.tgz -C /usr/libexec/docker/cli-plugins ; \
 rm -f /tmp/docker-mcp.tgz
+# docker-mcp(-gateway) requires socat  cf. https://github.com/docker/mcp-gateway/blob/main/Dockerfile
+RUN apt install -y socat
 
 # add nodejs + mcp-typescript-sdk(@modelcontextprotocol/sdk)
 ARG node_ver=22
