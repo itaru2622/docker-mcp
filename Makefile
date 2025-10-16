@@ -4,6 +4,8 @@ wDir  ?=${PWD}
 #fastmcp_ver ?=git+https://github.com/jlowin/fastmcp.git@main
 fastmcp_ver  ?=git+https://github.com/itaru2622/jlowin-fastmcp.git@main
 
+node_ver ?=22
+
 distr ?=trixie
 img   ?=itaru2622/mcp:${distr}
 base  ?=python:3.13-${distr}
@@ -28,7 +30,7 @@ endif
 
 
 build:
-	docker build --build-arg base=${base} --build-arg fastmcp_ver=${fastmcp_ver} -t ${img} .
+	docker build --build-arg base=${base} --build-arg fastmcp_ver=${fastmcp_ver} --build-arg node_ver=${node_ver} -t ${img} .
 
 # start container with dockerd
 start:

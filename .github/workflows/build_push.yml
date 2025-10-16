@@ -23,6 +23,7 @@ env:
   TAG_LATEST: ${{ vars.DOCKER_EXPORT_TAG}}
   BASE_IMG: ${{ vars.DOCKER_BASE_IMG}}
   FASTMCP_VER: ${{ vars.FASTMCP_VER}}
+  NODE_VER: ${{ vars.NODE_VER}}
   PLATFORMS: linux/amd64
 
 jobs:
@@ -80,3 +81,4 @@ jobs:
           build-args: |
             base=${{env.BASE_IMG}}
             fastmcp_ver=${{env.FASTMCP_VER}}
+            node_ver=${{env.NODE_VER}}
