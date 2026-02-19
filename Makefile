@@ -8,7 +8,7 @@ node_ver ?=22
 
 distr ?=trixie
 img   ?=itaru2622/mcp:${distr}
-base  ?=python:3.13-${distr}
+base  ?=python:3.14-${distr}
 cName ?=mcp
 
 # tune options by modes (dind or ordinal)
