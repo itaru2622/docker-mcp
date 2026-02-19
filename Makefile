@@ -1,8 +1,8 @@
 wDir  ?=${PWD}
 
 #fastmcp_ver ?=fastmcp
-#fastmcp_ver ?=git+https://github.com/PrefectHQ/fastmcp.git@main
-fastmcp_ver  ?=git+https://github.com/itaru2622/jlowin-fastmcp.git@main
+fastmcp_ver ?=git+https://github.com/PrefectHQ/fastmcp.git@main
+#fastmcp_ver  ?=git+https://github.com/itaru2622/jlowin-fastmcp.git@main
 
 node_ver ?=22
 
