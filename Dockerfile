@@ -29,7 +29,8 @@ RUN apt install -y socat
 ARG node_ver=22
 RUN curl -fsSL https://deb.nodesource.com/setup_${node_ver}.x | bash - ; apt update;
 RUN apt install -y nodejs; \
-    npm install -g @modelcontextprotocol/sdk
+    npm install -g @modelcontextprotocol/sdk \
+                   @redocly/cli
 
 # add 'just' (https://github.com/casey/just), needs to re-generate fastmcp api-docs(docs/python-sdk/*) on contributing.
 RUN curl --tlsv1.2 -fL https://just.systems/install.sh | bash -s -- --to /usr/local/bin
