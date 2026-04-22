@@ -30,11 +30,9 @@ ARG node_ver=22
 RUN curl -fsSL https://deb.nodesource.com/setup_${node_ver}.x | bash - ; apt update;
 RUN apt install -y nodejs; \
     npm install -g @modelcontextprotocol/sdk \
+                   @langchain/core langchain @langchain/langgraph @langchain/mcp-adapters @langchain/openai  tsx \
                    openapi-format \
                    @redocly/cli @stoplight/spectral-cli ibm-openapi-validator
 
 # add 'just' (https://github.com/casey/just), needs to re-generate fastmcp api-docs(docs/python-sdk/*) on contributing.
 RUN curl --tlsv1.2 -fL https://just.systems/install.sh | bash -s -- --to /usr/local/bin
-
-# mcp terminal client for dev/debug
-RUN curl -fL https://raw.githubusercontent.com/zueai/terminal-mcp/main/install.sh | bash
