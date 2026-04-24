@@ -12,7 +12,7 @@ ARG fastmcp_ver=fastmcp
 ENV _fastmcp_ver=${fastmcp_ver}
 ENV _fastmcp_origin=git+https://github.com/PrefectHQ/fastmcp.git@main
 RUN pip install uv pydantic PyYAML  \
-                 mcp fastapi      ${fastmcp_ver} \
+                 mcp fastapi[standard]  ${fastmcp_ver} \
                  pandas openpyxl \
                  openai langchain langgraph langchain-openai langchain-mcp-adapters
 
