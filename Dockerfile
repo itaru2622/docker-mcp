@@ -34,5 +34,12 @@ RUN apt install -y nodejs; \
                    openapi-format \
                    @redocly/cli @stoplight/spectral-cli ibm-openapi-validator
 
+RUN (mkdir -p /opt/mcp-ext-app; cd /opt/mcp-ext-app; \
+     git clone https://github.com/modelcontextprotocol/ext-apps.git .; \
+     npm install ; npm run build; npm run -workspace examples/basic-host build; \
+     pushd examples/basic-host; npm install; \
+    )
+VOLUME /opt/mcp-ext-app
+
 # add 'just' (https://github.com/casey/just), needs to re-generate fastmcp api-docs(docs/python-sdk/*) on contributing.
 RUN curl --tlsv1.2 -fL https://just.systems/install.sh | bash -s -- --to /usr/local/bin
