@@ -11,7 +11,8 @@ RUN  apt update; apt install -y docker-ce docker-ce-cli docker-compose-plugin \
 ARG fastmcp_ver=fastmcp
 ENV _fastmcp_ver=${fastmcp_ver}
 ENV _fastmcp_origin=git+https://github.com/PrefectHQ/fastmcp.git@main
-RUN pip install uv pydantic PyYAML  \
+RUN pip install uv; \
+    uv pip install --system pydantic PyYAML  \
                  mcp fastapi[standard]  ${fastmcp_ver} \
                  pandas openpyxl \
                  openai langchain langgraph langchain-openai langchain-mcp-adapters
