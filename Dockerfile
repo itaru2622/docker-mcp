@@ -14,6 +14,7 @@ ENV _fastmcp_origin=git+https://github.com/PrefectHQ/fastmcp.git@main
 RUN pip install uv; \
     uv pip install --system pydantic PyYAML  \
                  mcp fastapi[standard]  ${fastmcp_ver} \
+                 mcp-proxy \
                  pandas openpyxl \
                  openai langchain langgraph langchain-openai langchain-mcp-adapters
 
@@ -30,8 +31,10 @@ RUN apt install -y socat
 ARG node_ver=22
 RUN curl -fsSL https://deb.nodesource.com/setup_${node_ver}.x | bash - ; apt update;
 RUN apt install -y nodejs; \
-    npm install -g @modelcontextprotocol/sdk \
-                   @langchain/core langchain @langchain/langgraph @langchain/mcp-adapters @langchain/openai  tsx \
+    npm install -g typescript @types/node tsx pnpm \
+                   @modelcontextprotocol/sdk \
+                   @langchain/core langchain @langchain/langgraph @langchain/mcp-adapters @langchain/openai \
+                   chrome-devtools-mcp \
                    openapi-format \
                    @redocly/cli @stoplight/spectral-cli ibm-openapi-validator
 
