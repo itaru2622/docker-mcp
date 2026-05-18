@@ -41,7 +41,7 @@ RUN apt install -y nodejs; \
 RUN (mkdir -p /opt/mcp-ext-app; cd /opt/mcp-ext-app; \
      git clone https://github.com/modelcontextprotocol/ext-apps.git .; \
      npm install ; npm run build; npm run -workspace examples/basic-host build; \
-     pushd examples/basic-host; npm install; \
+     cd examples/basic-host; npm install; \
     )
 VOLUME /opt/mcp-ext-app
 
