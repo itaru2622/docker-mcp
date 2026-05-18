@@ -5,7 +5,7 @@ wDir  ?=${PWD}
 #fastmcp_ver ?=fastmcp[apps]@git+https://github.com/itaru2622/jlowin-fastmcp.git@main
 fastmcp_ver ?=fastmcp[apps]@git+https://github.com/PrefectHQ/fastmcp.git@main
 
-node_ver ?=22
+node_ver ?=24
 
 distr ?=trixie
 img   ?=itaru2622/mcp:${distr}
