@@ -31,7 +31,13 @@ RUN apt install -y socat
 ARG node_ver=22
 RUN curl -fsSL https://deb.nodesource.com/setup_${node_ver}.x | bash - ; apt update;
 RUN apt install -y nodejs; \
-    npm install -g typescript @types/node tsx pnpm \
+    npm install -g pnpm;
+
+# setup PNPM env
+ENV PNPM_HOME=/usr/local/share/pnpm
+ENV PATH=${PATH}:${PNPM_HOME}/bin
+
+RUN pnpm add -g typescript @types/node tsx \
                    @modelcontextprotocol/sdk \
                    @langchain/core langchain @langchain/langgraph @langchain/mcp-adapters @langchain/openai \
                    chrome-devtools-mcp \
